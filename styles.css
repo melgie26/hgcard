@@ -37,8 +37,10 @@ h1 span { color: #d8d9da; font-size: 1em; }
 .button-outline:hover { background: rgba(255,255,255,.08); }
 .group-email { display: inline-block; color: rgba(255,255,255,.62); margin-top: 22px; font-size: 13px; text-underline-offset: 4px; }
 .scroll-cue { display: none; }
-.affiliation { align-self: end; position: relative; z-index: 1; padding-bottom: 8px; }
+.affiliation { align-self: end; position: relative; z-index: 1; padding-bottom: 8px; color: #fff; display: flex; flex-direction: column; align-items: center; gap: 9px; text-decoration: none; font-size: 10px; font-weight: 750; text-align: center; line-height: 1.25; }
 .affiliation img { display: block; width: 82px; height: 82px; object-fit: contain; background: rgba(255,255,255,.92); border-radius: 50%; padding: 7px; }
+.affiliation > span { width: 92px; padding: 7px 5px; border: 1px solid rgba(255,255,255,.2); border-radius: 9px; background: rgba(255,255,255,.07); transition: background .18s ease,border-color .18s ease; }
+.affiliation:hover > span { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.38); }
 
 .directory { max-width: 1180px; margin: 0 auto; padding: 90px 28px 110px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 38px; }
@@ -61,12 +63,15 @@ h3 { font-family: Georgia, "Times New Roman", serif; font-size: 29px; font-weigh
 footer { min-height: 160px; padding: 34px 6vw; background: var(--charcoal); color: rgba(255,255,255,.6); display: flex; align-items: center; justify-content: center; gap: 18px; font-size: 11px; }
 footer img { width: 46px; height: 46px; object-fit: contain; }
 footer p { padding-right: 18px; border-right: 1px solid rgba(255,255,255,.14); }
-footer a { color: #fff; text-underline-offset: 4px; }
+.footer-website { min-height: 48px; padding: 0 18px; border-radius: 12px; background: var(--red); color: #fff; display: inline-flex; align-items: center; gap: 13px; font-size: 13px; font-weight: 780; text-decoration: none; box-shadow: 0 9px 24px rgba(0,0,0,.2); transition: background .18s ease,transform .18s ease; }
+.footer-website:hover { background: #e00a1d; transform: translateY(-1px); }
+.footer-website span:last-child { font-size: 17px; }
 
 @media (max-width: 900px) {
   .hero { min-height: 640px; grid-template-columns: 220px minmax(0,1fr); gap: 36px; padding-inline: 35px; }
-  .affiliation { position: absolute; right: 28px; bottom: 28px; }
+  .affiliation { position: absolute; right: 24px; bottom: 22px; }
   .affiliation img { width: 64px; height: 64px; }
+  .affiliation > span { width: 86px; }
   .member { grid-template-columns: 130px minmax(0,1fr); }
   .portrait { width: 130px; height: 220px; }
   .member-actions { grid-template-columns: 1fr; gap: 10px; }
@@ -81,7 +86,7 @@ footer a { color: #fff; text-underline-offset: 4px; }
   .lede { margin: 15px 0 24px; }
   .hero-actions { width: 100%; flex-direction: column; gap: 10px; }
   .button-light,.button-outline { flex: none; width: 100%; }
-  .affiliation { right: 18px; bottom: 18px; }
+  .affiliation { right: 14px; bottom: 14px; }
   .scroll-cue { width: 100%; margin-top: 20px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.14); color: rgba(255,255,255,.82); display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; font-size: 12px; font-weight: 700; }
   .scroll-arrow { display: inline-grid; place-items: center; width: 26px; height: 26px; border: 1px solid rgba(255,255,255,.26); border-radius: 50%; font-size: 16px; animation: nudge 1.7s ease-in-out infinite; }
   .section-heading { display: block; }
@@ -95,8 +100,9 @@ footer a { color: #fff; text-underline-offset: 4px; }
   .contact-line { font-size: 12px; }
   .contact-line.email { font-size: 10px; }
   .member-actions { grid-column: 1 / -1; margin-top: 13px; }
-  footer { flex-direction: column; text-align: center; gap: 10px; }
+  footer { flex-direction: column; text-align: center; gap: 16px; padding-block: 40px; }
   footer p { border: 0; padding: 0; margin: 0; }
+  .footer-website { min-width: min(100%,240px); justify-content: space-between; }
 }
 
 @keyframes nudge { 0%,100% { transform: translateY(-2px); } 50% { transform: translateY(3px); } }
